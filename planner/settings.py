@@ -142,3 +142,41 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    # you can change the formatter from verbose to simple to see different formatters
+    "handlers": {
+        "file": {
+            "class": "logging.FileHandler",
+            "filename": "general.log",
+            "level": "DEBUG",
+            "formatter": "verbose",
+        },
+        "console": {
+            "class": "logging.StreamHandler",  # streamhandler outputs to the terminal instead of a file
+            "level": "DEBUG",
+            "formatter": "simple",
+        },
+    },
+    # loggers to define any logging objects to use in the project
+    # The empty "" means that all logs will go through this log object.
+    "loggers": {
+        "": {
+            "level": "DEBUG",
+            "handlers": ["file", "console"],
+        }
+    },
+    "formatters": {
+        "simple": {
+            "format": "{asctime}: {levelname} {message}",
+            "style": "{",
+        },
+        "verbose": {
+            "format": "{asctime}: {levelname} - {name} {module}.py (line{lineno:d}). {message}",
+            "style": "{",
+        },
+    },
+}

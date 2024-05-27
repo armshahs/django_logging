@@ -1,3 +1,4 @@
+import logging
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.models import User
@@ -10,9 +11,16 @@ from .models import Todo
 from .serializers import TodoSerializer
 
 
+logger = logging.getLogger(__name__)
+
+
 # Create your views here.
 @api_view(["GET"])
 def get_todos(request):
+
+    # Logger to get general info------------>
+    logger.info("Testing the logger!")
+
     todos = Todo.objects.all()
     serializer = TodoSerializer(todos, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
@@ -22,6 +30,10 @@ def get_todos(request):
 class get_todos_generics(generics.GenericAPIView):
 
     def get(self, request):
+
+        # Logger to get general info------------>
+        logger.info("Testing the logger!")
+
         todos = Todo.objects.all()
         serializer = TodoSerializer(todos, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
@@ -30,9 +42,17 @@ class get_todos_generics(generics.GenericAPIView):
 @api_view(["POST"])
 def post_todo(request):
 
-    # owner id 1 is admin. Since we do not have auth, this is a workaround
-    owner_id = 1
-    owner = get_object_or_404(User, id=owner_id)
+    # Logger to get general info------------>
+    logger.info("Testing the logger!")
+
+    # getting owner_id
+    owner_id = request.data.get("owner")
+
+    # Logger to get errors------------>
+    try:
+        owner = User.objects.get(id=owner_id)
+    except:
+        logger.error("User with ID %s does not exist", owner_id)
 
     serializer = TodoSerializer(data=request.data)
     if serializer.is_valid():
@@ -49,9 +69,17 @@ class post_todo_generics(generics.GenericAPIView):
 
     def post(self, request):
 
-        # owner id 1 is admin. Since we do not have auth, this is a workaround
-        owner_id = 1
-        owner = get_object_or_404(User, id=owner_id)
+        # Logger to get general info------------>
+        logger.info("Testing the logger!")
+
+        # getting owner_id
+        owner_id = request.data.get("owner")
+
+        # Logger to get errors------------>
+        try:
+            owner = User.objects.get(id=owner_id)
+        except:
+            logger.error("User with ID %s does not exist", owner_id)
 
         serializer = TodoSerializer(data=request.data)
         if serializer.is_valid():
