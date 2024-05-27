@@ -151,13 +151,13 @@ LOGGING = {
     "handlers": {
         "file": {
             "class": "logging.FileHandler",
-            "filename": "general.log",
-            "level": "DEBUG",
+            "filename": env("DJANGO_LOG_FILE"),
+            "level": env("DJANGO_LOG_LEVEL"),
             "formatter": "verbose",
         },
         "console": {
             "class": "logging.StreamHandler",  # streamhandler outputs to the terminal instead of a file
-            "level": "DEBUG",
+            "level": env("DJANGO_LOG_LEVEL"),
             "formatter": "simple",
         },
     },

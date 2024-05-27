@@ -1,0 +1,16 @@
+2024-05-27 14:53:00,505: INFO - django.utils.autoreload autoreload.py (line668). Watching for file changes with StatReloader
+2024-05-27 14:53:05,497: INFO - todos.views views.py (line46). Testing the logger!
+2024-05-27 14:53:05,500: ERROR - todos.views views.py (line55). User with ID 2 does not exist
+2024-05-27 14:53:05,502: WARNING - django.request log.py (line241). Bad Request: /api/v1/post_todo/
+2024-05-27 14:53:48,084: INFO - todos.views views.py (line46). Testing the logger!
+2024-05-27 14:53:48,086: ERROR - todos.views views.py (line55). User with ID 2 does not exist
+2024-05-27 14:53:48,088: WARNING - django.request log.py (line241). Bad Request: /api/v1/post_todo/
+2024-05-27 14:53:56,398: INFO - django.utils.autoreload autoreload.py (line266). C:\Users\Shahrukh\OneDrive\Shahrukh\Coding\Python_Django\18.Django_logging\django_logging\planner\settings.py changed, reloading.
+2024-05-27 14:53:57,069: INFO - django.utils.autoreload autoreload.py (line668). Watching for file changes with StatReloader
+2024-05-27 14:54:44,481: INFO - django.utils.autoreload autoreload.py (line266). C:\Users\Shahrukh\OneDrive\Shahrukh\Coding\Python_Django\18.Django_logging\django_logging\planner\settings.py changed, reloading.
+2024-05-27 14:54:45,189: INFO - django.utils.autoreload autoreload.py (line668). Watching for file changes with StatReloader
+2024-05-27 14:54:50,071: INFO - todos.views views.py (line46). Testing the logger!
+2024-05-27 14:54:50,074: ERROR - todos.views views.py (line55). User with ID 2 does not exist
+2024-05-27 14:54:50,076: WARNING - django.request log.py (line241). Bad Request: /api/v1/post_todo/
+2024-05-27 14:54:57,265: INFO - django.utils.autoreload autoreload.py (line266). C:\Users\Shahrukh\OneDrive\Shahrukh\Coding\Python_Django\18.Django_logging\django_logging\planner\settings.py changed, reloading.
+2024-05-27 14:54:58,032: INFO - django.utils.autoreload autoreload.py (line668). Watching for file changes with StatReloader
